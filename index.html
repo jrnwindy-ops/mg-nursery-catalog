@@ -727,45 +727,10 @@
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════ -->
-<!--               PASSWORD GATE (soft launch)                 -->
-<!-- ════════════════════════════════════════════════════════ -->
-<div id="password-gate" style="position:fixed; top:0; left:0; right:0; bottom:0; background:#1B3A2C; z-index:99999; display:flex; align-items:center; justify-content:center; padding:20px;">
-  <div style="background:#F8F4E6; border-radius:14px; padding:36px 32px; max-width:420px; width:100%; text-align:center; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#1B3A2C; font-size:24px; font-weight:900; letter-spacing:0.02em; margin-bottom:6px;">M&amp;G NURSERY</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#E8841E; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:22px;">Variety Catalog · Preview</div>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#4A5444; font-size:13px; line-height:1.5; margin-bottom:18px; font-style:italic;">This catalog is in preview mode while we finalize content and photography. Please enter the access code to continue.</div>
-    <input type="password" id="gate-pw" placeholder="Access code" autocomplete="off" style="width:100%; padding:12px 14px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:15px; border:1.5px solid #E5E7EB; border-radius:8px; box-sizing:border-box; margin-bottom:8px; outline:none;" onkeypress="if(event.key==='Enter')gateCheck()">
-    <div id="gate-err" style="color:#C44536; font-size:12px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; min-height:18px; margin-bottom:8px;"></div>
-    <button onclick="gateCheck()" style="background:#1B3A2C; color:white; border:none; padding:12px 28px; border-radius:8px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; width:100%;">Enter</button>
-    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; color:#6B7560; font-size:11px; margin-top:18px; line-height:1.5;">For access, contact M&amp;G Nursery<br>(559) 397-1401 · mgfarmsinc@gmail.com</div>
-  </div>
+<!-- Small preview ribbon — photos coming soon -->
+<div style="position: fixed; top: 12px; right: 12px; z-index: 9999; background: rgba(232, 132, 30, 0.95); color: white; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); pointer-events: none;">
+  Preview · Photos Coming Soon
 </div>
-<script>
-  (function() {
-    var PASS = "mgnursery2025";
-    if (sessionStorage.getItem("mg_catalog_unlocked") === "yes") {
-      document.getElementById("password-gate").style.display = "none";
-    } else {
-      setTimeout(function() {
-        var input = document.getElementById("gate-pw");
-        if (input) input.focus();
-      }, 100);
-    }
-    window.gateCheck = function() {
-      var input = document.getElementById("gate-pw");
-      var err = document.getElementById("gate-err");
-      if (input.value === PASS) {
-        sessionStorage.setItem("mg_catalog_unlocked", "yes");
-        document.getElementById("password-gate").style.display = "none";
-      } else {
-        err.textContent = "Incorrect code. Try again.";
-        input.value = "";
-        input.focus();
-      }
-    };
-  })();
-</script>
 
 <div class="site-header">
   <h1>M&amp;G NURSERY</h1>
