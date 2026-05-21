@@ -175,23 +175,25 @@
   }
   .variety-card .photo {
     width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, var(--cream), var(--bone));
+    height: 140px;
+    background: linear-gradient(135deg, var(--grove-light), var(--bone-warm));
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 2px solid var(--citrus-orange);
   }
-  .variety-card .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .variety-card .photo.photo-placeholder {
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(232, 132, 30, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(74, 139, 92, 0.06) 0%, transparent 50%),
+      linear-gradient(135deg, var(--grove-light), var(--bone-warm));
   }
   .variety-card .photo .placeholder-icon {
-    font-size: 64px;
-    color: var(--citrus-orange);
-    opacity: 0.25;
+    font-size: 48px;
+    opacity: 0.35;
+    filter: grayscale(0.3);
   }
   .variety-card .photo .badge {
     position: absolute;
@@ -294,24 +296,39 @@
     gap: 16px;
     padding: 22px 24px 0;
   }
-  .photo-strip .ph {
-    background: var(--white);
-    border: 1px solid var(--bd);
+  .photo-strip .ph-placeholder {
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(232, 132, 30, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(74, 139, 92, 0.05) 0%, transparent 50%),
+      linear-gradient(135deg, var(--grove-light), var(--bone-warm));
+    border: 1.5px dashed var(--bd);
     border-radius: 10px;
-    padding: 14px;
+    padding: 32px 14px 22px;
     text-align: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .photo-strip .ph img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 8px;
+  .photo-strip .ph-placeholder .ph-icon {
+    font-size: 44px;
+    opacity: 0.3;
+    margin-bottom: 12px;
     display: block;
   }
-  .photo-strip .ph .photo-caption {
+  .photo-strip .ph-placeholder .ph-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--grove-deep);
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .photo-strip .ph-placeholder .ph-coming {
     font-style: italic;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--ink-mute);
+    letter-spacing: 0.02em;
   }
 
   .stat-grid {
@@ -764,9 +781,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('tango')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Tango Mandarin" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Mid–Late Season</span>
         </div>
         <div class="body">
@@ -777,9 +793,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('shiranui')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Shiranui (Sumo)" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Premium</span>
         </div>
         <div class="body">
@@ -790,9 +805,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('daisysl')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="DaisySL Seedless Mandarin" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Mid-Season</span>
         </div>
         <div class="body">
@@ -803,9 +817,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('wmurcott')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="W. Murcott Afourer" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Mid–Late Season</span>
         </div>
         <div class="body">
@@ -816,9 +829,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('owari')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Owari Satsuma" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Early Season</span>
         </div>
         <div class="body">
@@ -829,9 +841,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('clementine')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Clementine Mandarin" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Early–Mid Season</span>
         </div>
         <div class="body">
@@ -842,9 +853,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('goldnugget')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Gold Nugget Mandarin" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Late Season</span>
         </div>
         <div class="body">
@@ -855,9 +865,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('pixie')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Pixie Mandarin" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Very Late</span>
         </div>
         <div class="body">
@@ -874,9 +883,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('washington')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Parent Washington Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Classic Heritage</span>
         </div>
         <div class="body">
@@ -887,9 +895,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('fukumoto')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Fukumoto Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Early Season</span>
         </div>
         <div class="body">
@@ -900,9 +907,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('caracara')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Cara Cara Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Pink Navel</span>
         </div>
         <div class="body">
@@ -913,9 +919,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('atwood')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Atwood Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Early Season</span>
         </div>
         <div class="body">
@@ -926,9 +931,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('powell')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Powell Late Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Ultra Late</span>
         </div>
         <div class="body">
@@ -939,9 +943,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('lanelate')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Lane Late Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Late Season</span>
         </div>
         <div class="body">
@@ -952,9 +955,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('chislett')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Chislett Summer Navel" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Latest Season</span>
         </div>
         <div class="body">
@@ -971,9 +973,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('olinda')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Olinda Valencia" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Late Season</span>
         </div>
         <div class="body">
@@ -984,9 +985,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('midknight')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Midknight Valencia" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Premium Valencia</span>
         </div>
         <div class="body">
@@ -997,9 +997,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('delta')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Delta Valencia" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Early Valencia</span>
         </div>
         <div class="body">
@@ -1016,9 +1015,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('moro')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Moro Blood Orange" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Deep Color</span>
         </div>
         <div class="body">
@@ -1029,9 +1027,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('tarocco')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Tarocco Blood Orange" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Sweetest Blood</span>
         </div>
         <div class="body">
@@ -1048,9 +1045,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('eureka')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Frost Eureka Lemon" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">California Standard</span>
         </div>
         <div class="body">
@@ -1061,9 +1057,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('lisbon')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Frost Lisbon Lemon" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Cold-Hardier</span>
         </div>
         <div class="body">
@@ -1074,9 +1069,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('meyer')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Improved Meyer Lemon" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Sweet Hybrid</span>
         </div>
         <div class="body">
@@ -1093,9 +1087,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('bearss')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Bearss Persian Lime" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Commercial Standard</span>
         </div>
         <div class="body">
@@ -1106,9 +1099,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('mexicanlime')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Mexican (Key) Lime" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Specialty</span>
         </div>
         <div class="body">
@@ -1125,9 +1117,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('riored')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Rio Red Grapefruit" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Deep Red</span>
         </div>
         <div class="body">
@@ -1138,9 +1129,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('starruby')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Star Ruby Grapefruit" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Deepest Red</span>
         </div>
         <div class="body">
@@ -1157,9 +1147,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('chandler')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=600&h=400&q=80" alt="Chandler Pummelo" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">UCR Pummelo</span>
         </div>
         <div class="body">
@@ -1176,9 +1165,8 @@
     </div>
     <div class="card-grid">
       <div class="variety-card" onclick="goToDetail('fingerlime')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Australian Finger Lime" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">High-Value</span>
         </div>
         <div class="body">
@@ -1189,9 +1177,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('buddhashand')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Buddha's Hand Citron" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Decorative/Culinary</span>
         </div>
         <div class="body">
@@ -1202,9 +1189,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('yuzu')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Yuzu" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Restaurant Demand</span>
         </div>
         <div class="body">
@@ -1215,9 +1201,8 @@
         </div>
       </div>
       <div class="variety-card" onclick="goToDetail('kumquat')">
-        <div class="photo">
-          <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Nagami &amp; Meiwa Kumquat" onerror="this.style.display='none';this.parentNode.querySelector('.placeholder-icon').style.display='block'">
-          <span class="placeholder-icon" style="display:none">🍊</span>
+        <div class="photo photo-placeholder">
+          <span class="placeholder-icon">🍊</span>
           <span class="badge">Eaten Whole</span>
         </div>
         <div class="body">
@@ -1266,13 +1251,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Tango Mandarin">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Tango Mandarin cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1386,13 +1373,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Shiranui (Sumo)">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Shiranui (Sumo) cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1504,13 +1493,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole DaisySL Seedless Mandarin">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="DaisySL Seedless Mandarin cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1619,13 +1610,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole W. Murcott Afourer">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="W. Murcott Afourer cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1736,13 +1729,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Owari Satsuma">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Owari Satsuma cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1852,13 +1847,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Clementine Mandarin">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Clementine Mandarin cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -1968,13 +1965,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Gold Nugget Mandarin">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Gold Nugget Mandarin cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2085,13 +2084,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Pixie Mandarin">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1577003833619-76bbd7f82948?auto=format&fit=crop&w=600&h=400&q=80" alt="Pixie Mandarin cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2200,13 +2201,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Parent Washington Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Parent Washington Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2317,13 +2320,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Fukumoto Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Fukumoto Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2433,13 +2438,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Cara Cara Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Cara Cara Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2548,13 +2555,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Atwood Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Atwood Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2663,13 +2672,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Powell Late Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Powell Late Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2779,13 +2790,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Lane Late Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Lane Late Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -2892,13 +2905,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Chislett Summer Navel">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=600&h=400&q=80" alt="Chislett Summer Navel cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3009,13 +3024,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Olinda Valencia">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Olinda Valencia cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3126,13 +3143,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Midknight Valencia">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Midknight Valencia cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3243,13 +3262,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Delta Valencia">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&h=400&q=80" alt="Delta Valencia cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3356,13 +3377,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Moro Blood Orange">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Moro Blood Orange cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3472,13 +3495,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Tarocco Blood Orange">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1591643307123-1e9d4d3d0e7d?auto=format&fit=crop&w=600&h=400&q=80" alt="Tarocco Blood Orange cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3590,13 +3615,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Frost Eureka Lemon">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Frost Eureka Lemon cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3708,13 +3735,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Frost Lisbon Lemon">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Frost Lisbon Lemon cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3826,13 +3855,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Improved Meyer Lemon">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&h=400&q=80" alt="Improved Meyer Lemon cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -3944,13 +3975,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Bearss Persian Lime">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Bearss Persian Lime cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4061,13 +4094,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Mexican (Key) Lime">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1622957461168-202e611c8a17?auto=format&fit=crop&w=600&h=400&q=80" alt="Mexican (Key) Lime cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4178,13 +4213,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Rio Red Grapefruit">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Rio Red Grapefruit cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4296,13 +4333,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Star Ruby Grapefruit">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1610651825130-c19f59ce4f88?auto=format&fit=crop&w=600&h=400&q=80" alt="Star Ruby Grapefruit cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4412,13 +4451,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Chandler Pummelo">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=600&h=400&q=80" alt="Chandler Pummelo cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4527,13 +4568,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Australian Finger Lime">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Australian Finger Lime cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4643,13 +4686,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Buddha's Hand Citron">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Buddha's Hand Citron cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4757,13 +4802,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Yuzu">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Yuzu cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
@@ -4871,13 +4918,15 @@
   </div>
 
   <div class="photo-strip">
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Whole Nagami &amp; Meiwa Kumquat">
-      <div class="photo-caption">Whole fruit</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Whole fruit</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
-    <div class="ph">
-      <img src="https://images.unsplash.com/photo-1567769082006-58b5a8a59bbe?auto=format&fit=crop&w=600&h=400&q=80" alt="Nagami &amp; Meiwa Kumquat cross section">
-      <div class="photo-caption">Cross section</div>
+    <div class="ph ph-placeholder">
+      <span class="ph-icon">🍊</span>
+      <div class="ph-label">Cross section</div>
+      <div class="ph-coming">Photo coming soon</div>
     </div>
   </div>
 
